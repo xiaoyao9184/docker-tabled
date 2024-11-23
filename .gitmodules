@@ -1,0 +1,3 @@
+[submodule "tabled"]
+	path = tabled
+	url = https://github.com/VikParuchuri/tabled.git
