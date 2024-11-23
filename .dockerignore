@@ -1,0 +1,9 @@
+tabled/.git/
+tabled/.github/
+tabled/benchmark/
+tabled/scripts/
+tabled/static/
+tabled/.gitignore
+tabled/poetry.lock
+# Ignore generated files
+**/*.pyc
