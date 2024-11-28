@@ -13,11 +13,11 @@ on:
       tabled_version:
         description: tabled version of pypi
         required: true
-        default: 0.1.4
+        default: 0.1.5
       streamlit_version:
         description: streamlit version of pypi
         required: true
-        default: 1.39.0
+        default: 1.40.2
 
 jobs:
   build-and-push-docker-image:
@@ -29,9 +29,9 @@ jobs:
     strategy:
       matrix:
         TABLED_VERSION:
-          - ${{ github.event.inputs.tabled_version || '0.1.4' }}
+          - ${{ github.event.inputs.tabled_version || '0.1.5' }}
         STREAMLIT_VERSION:
-          - ${{ github.event.inputs.streamlit_version || '1.39.0' }}
+          - ${{ github.event.inputs.streamlit_version || '1.40.2' }}
         platform:
           - linux/amd64
 

@@ -32,31 +32,6 @@ The folder structure for `./cache/huggingface/hub/models--vikp--surya_det3` is a
 4 directories, 13 files
 ```
 
-and `./cache/huggingface/hub/models--vikp--surya_layout3` like this
-
-```
-.
-├── blobs
-│   ├── 0a51f931c62cfc4a56f9afdaedfa96336b040a47
-│   ├── 26e1ccb624958982ad55191648d53f9610cfce83b5bd9a227804a62bf3446639
-│   ├── 2cd406fa7808c997daa69ef095b1992f243dadd7
-│   ├── 64a74e7f804289d76c13f7aab35ad32c6071ccb41db04d8626909c84063971b4
-│   ├── a6344aac8c09253b3b630fb776ae94478aa0275b
-│   └── afaa751c9f40e9df6796a7c2f3d7a9a2159ccae0
-├── refs
-│   └── main
-└── snapshots
-    └── 6f4c319b213ddbe736c9fe6de87ad7dc3bbb0a1e
-        ├── config.json -> ../../blobs/afaa751c9f40e9df6796a7c2f3d7a9a2159ccae0
-        ├── .gitattributes -> ../../blobs/a6344aac8c09253b3b630fb776ae94478aa0275b
-        ├── model.safetensors -> ../../blobs/64a74e7f804289d76c13f7aab35ad32c6071ccb41db04d8626909c84063971b4
-        ├── preprocessor_config.json -> ../../blobs/2cd406fa7808c997daa69ef095b1992f243dadd7
-        ├── README.md -> ../../blobs/0a51f931c62cfc4a56f9afdaedfa96336b040a47
-        └── training_args.bin -> ../../blobs/26e1ccb624958982ad55191648d53f9610cfce83b5bd9a227804a62bf3446639
-
-4 directories, 13 files
-```
-
 and `./cache/huggingface/hub/models--vikp--surya_rec2` like this
 
 ```
@@ -119,11 +94,34 @@ and `./cache/huggingface/hub/models--vikp--surya_tablerec` like this
 4 directories, 19 files
 ```
 
+and `./cache/huggingface/hubmodels--datalab-to--surya_layout0` like this
+
+
+```
+.
+├── blobs
+│   ├── 15a199bdf136c1ae9f4249308032f67bc0ef74e6770db2a87f55f72503914e00
+│   ├── 6284a0fcdd550cdae76a90177664e8f34cf7a8cc
+│   ├── 776774696986893ca5eb478899ea9d06c20435c5
+│   ├── a6344aac8c09253b3b630fb776ae94478aa0275b
+│   └── e389089e7f1b85048e6dc1a9f84b51982c04b9f0
+├── refs
+│   └── main
+└── snapshots
+    └── 421ac206a400227ea714d47a405e53ce74374957
+        ├── config.json -> ../../blobs/e389089e7f1b85048e6dc1a9f84b51982c04b9f0
+        ├── model.safetensors -> ../../blobs/15a199bdf136c1ae9f4249308032f67bc0ef74e6770db2a87f55f72503914e00
+        ├── preprocessor_config.json -> ../../blobs/776774696986893ca5eb478899ea9d06c20435c5
+        └── README.md -> ../../blobs/6284a0fcdd550cdae76a90177664e8f34cf7a8cc
+
+4 directories, 10 files
+```
+
 It will use
 - `./cache/huggingface/hub/models--vikp--surya_det3/snapshots/467ee9ec33e6e6c5f73e57dbc1415b14032f5b95`
-- `./cache/huggingface/hub/models--vikp--surya_layout3/snapshots/6f4c319b213ddbe736c9fe6de87ad7dc3bbb0a1e`
 - `./cache/huggingface/hub/models--vikp--surya_rec2/snapshots/6611509b2c3a32c141703ce19adc899d9d0abf41`
 - `./cache/huggingface/hub/models--vikp--surya_tablerec/snapshots/8bca165f81e9cee5fb382413eb23175079917d14`
+- `./cache/huggingface/hub/hubmodels--datalab-to--surya_layout0/snapshots/421ac206a400227ea714d47a405e53ce74374957`
 
 For more details, refer to [up@cpu-offline/docker-compose.yml](./../docker/up@cpu-offline/docker-compose.yml).
 
@@ -142,7 +140,7 @@ download model
 
 ```bash
 huggingface-cli download vikp/surya_det3 --repo-type model --revision main --cache-dir ./cache/huggingface/hub
-huggingface-cli download vikp/surya_layout3 --repo-type model --revision main --cache-dir ./cache/huggingface/hub
 huggingface-cli download vikp/surya_rec2 --repo-type model --revision main --cache-dir ./cache/huggingface/hub
 huggingface-cli download vikp/surya_tablerec --repo-type model --revision main --cache-dir ./cache/huggingface/hub
+huggingface-cli download datalab-to/surya_layout0 --revision main --cache-dir ./cache/huggingface/hub
 ```
