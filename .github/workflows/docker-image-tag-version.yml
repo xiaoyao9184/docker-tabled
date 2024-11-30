@@ -13,7 +13,7 @@ on:
       tabled_version:
         description: tabled version of pypi
         required: true
-        default: 0.1.5
+        default: 0.1.6
       streamlit_version:
         description: streamlit version of pypi
         required: true
@@ -29,7 +29,7 @@ jobs:
     strategy:
       matrix:
         TABLED_VERSION:
-          - ${{ github.event.inputs.tabled_version || '0.1.5' }}
+          - ${{ github.event.inputs.tabled_version || '0.1.6' }}
         STREAMLIT_VERSION:
           - ${{ github.event.inputs.streamlit_version || '1.40.2' }}
         platform:
