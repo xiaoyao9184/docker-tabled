@@ -1,0 +1,4 @@
+torch==2.5.1
+tabled-pdf==0.1.7
+gradio==5.8.0
+huggingface-hub==0.26.3
