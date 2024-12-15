@@ -1,0 +1,20 @@
+
+
+services:
+  tabled_gradio:
+    image: xiaoyao9184/tabled:master
+    container_name: tabled_pdf_gradio
+    working_dir: /workspace/gradio
+    command: gradio gradio_app.py
+    environment:
+      - TORCH_DEVICE=cuda
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./../../cache:/root/.cache
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [ gpu ]
