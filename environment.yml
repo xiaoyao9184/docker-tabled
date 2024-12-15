@@ -15,3 +15,4 @@ dependencies:
 
   - pip:
     - -e ./tabled
+    - gradio==5.8.0
