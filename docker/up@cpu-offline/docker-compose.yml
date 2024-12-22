@@ -2,7 +2,7 @@
 
 services:
   tabled_app:
-    image: xiaoyao9184/tabled:0.1.7
+    image: xiaoyao9184/tabled:0.2.0
     container_name: tabled_pdf_app
     environment:
       - TORCH_DEVICE=cpu
