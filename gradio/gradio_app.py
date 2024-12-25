@@ -2,11 +2,12 @@ import os
 import sys
 
 if "APP_PATH" in os.environ:
-    os.chdir(os.environ["APP_PATH"])
-    # fix sys.path for import
-    sys.path.append(os.getcwd())
-
-print(os.getenv("XDG_CACHE_HOME"))
+    app_path = os.path.abspath(os.environ["APP_PATH"])
+    if os.getcwd() != app_path:
+        # fix sys.path for import
+        os.chdir(app_path)
+    if app_path not in sys.path:
+        sys.path.append(app_path)
 
 import gradio as gr
 
@@ -20,8 +21,6 @@ os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
 os.environ["IN_STREAMLIT"] = "true"
 import pypdfium2
 
-import io
-import tempfile
 from PIL import Image
 
 from tabled.inference.models import load_detection_models, load_recognition_models, load_layout_models
@@ -70,8 +69,9 @@ def get_page_image(pdf_file, page_num, dpi=96):
 def get_uploaded_image(in_file):
     return Image.open(in_file).convert("RGB")
 
-
-models = load_models()
+# Load models if not already loaded in reload mode
+if 'models' not in globals():
+    models = load_models()
 
 with gr.Blocks(title="Tabled") as demo:
     gr.Markdown("""
@@ -142,4 +142,5 @@ with gr.Blocks(title="Tabled") as demo:
             outputs=[result_img, result_md]
         )
 
-demo.launch()
+if __name__ == "__main__":
+    demo.launch()
